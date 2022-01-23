@@ -33,6 +33,12 @@
 - NEXT_PUBLIC_HOST=http://localhost:3000
 
 # Screenshots
+### Homepage in FullHD
 ![youthful-einstein-c3a68f netlify app_(full hd)](https://user-images.githubusercontent.com/23309848/150670406-b6d2130b-9fae-45c4-80e0-bbd9aaf64b7e.png)
-![youthful-einstein-c3a68f netlify app_(Nest Hub Max)](https://user-images.githubusercontent.com/23309848/150670448-5b35e063-cc79-4e6e-9a2c-c5093b4678a8.png)![youthful-einstein-c3a68f netlify app_(full hd) (1)](https://user-images.githubusercontent.com/23309848/150670484-f639d478-0a06-4c18-a775-7b65ce0f7313.png)
+
+### Homepage in tablet screen
+![youthful-einstein-c3a68f netlify app_(Nest Hub Max)](https://user-images.githubusercontent.com/23309848/150670448-5b35e063-cc79-4e6e-9a2c-c5093b4678a8.png)
+
+### Confirmation modal in FullHD
+![youthful-einstein-c3a68f netlify app_(full hd) (1)](https://user-images.githubusercontent.com/23309848/150670484-f639d478-0a06-4c18-a775-7b65ce0f7313.png)
 
