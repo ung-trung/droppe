@@ -1,0 +1,17 @@
+.gridContainer {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 4rem;
+	margin-bottom: 4rem;
+}
+
+@media (min-width: 1080px) {
+	.gridContainer {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (min-width: 1440px) {
+	.gridContainer {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

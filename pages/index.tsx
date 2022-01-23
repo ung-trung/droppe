@@ -7,7 +7,7 @@ import Modal from 'react-modal'
 import CardList from '../components/CardList'
 import ConfirmModal from '../components/ConfirmModal'
 import AppProvider from '../context/appContext'
-
+import styles from '../styles/Home.module.css'
 Modal.setAppElement('#__next')
 
 const Home: NextPage = ({ initialCarts }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -20,19 +20,24 @@ const Home: NextPage = ({ initialCarts }: InferGetServerSidePropsType<typeof get
 					<meta name="description" content="Droppe Xmas" />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<h1 className="title">Manage Wishlists</h1>
-				<h2 className="sub-title">This page is to help you manage the wish list</h2>
-				<CardList></CardList>
-				<button
-					onClick={() => {
-						setOpen(true)
-					}}
-				>
-					Save
-				</button>
-				<Modal isOpen={open} onRequestClose={() => setOpen(false)}>
-					<ConfirmModal />
-				</Modal>
+				<div className="container">
+					<h1 className={styles.title}>Droppe Xmas</h1>
+					<h2 className={styles.subtitle}>This page helps you manage your family's wishlists</h2>
+					<CardList></CardList>
+					<div className={styles.ctaContainer}>
+						<button
+							className={`btn ${styles.cta}`}
+							onClick={() => {
+								setOpen(true)
+							}}
+						>
+							Save
+						</button>
+					</div>
+					<Modal isOpen={open} onRequestClose={() => setOpen(false)}>
+						<ConfirmModal />
+					</Modal>
+				</div>
 			</div>
 		</AppProvider>
 	)

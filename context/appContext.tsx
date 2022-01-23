@@ -37,33 +37,40 @@ const AppProvider: FC<{ initialCarts: IPopulatedCart[] }> = ({ children, initial
 	const [carts, setCarts] = useState(transformDiscountCart(initialCarts))
 	const updateCartProductQuantity = ({ cartId, productId, newQuantity }: UpdateCartProductQuantityParams) => {
 		setCarts(
-			transformDiscountCart(
-				carts.map(cart =>
-					cart.id !== cartId
-						? cart
-						: {
-								...cart,
-								products: cart.products.map(product =>
-									product.productId !== productId ? product : { ...product, quantity: newQuantity }
-								)
-						  }
-				)
+			carts.map(cart =>
+				cart.id !== cartId
+					? cart
+					: {
+							...cart,
+							products: cart.products.map(cartProduct =>
+								cartProduct.productId !== productId
+									? cartProduct
+									: {
+											...cartProduct,
+											product: cartProduct.product
+												? {
+														...cartProduct.product,
+														totalPrice: cartProduct.product.price * newQuantity
+												  }
+												: cartProduct.product,
+											quantity: newQuantity
+									  }
+							)
+					  }
 			)
 		)
 	}
 	const updateCartProductStatus = ({ cartId, productId, newStatus }: UpdateCartProductStatusParams) => {
 		setCarts(
-			transformDiscountCart(
-				carts.map(cart =>
-					cart.id !== cartId
-						? cart
-						: {
-								...cart,
-								products: cart.products.map(product =>
-									product.productId !== productId ? product : { ...product, status: newStatus }
-								)
-						  }
-				)
+			carts.map(cart =>
+				cart.id !== cartId
+					? cart
+					: {
+							...cart,
+							products: cart.products.map(product =>
+								product.productId !== productId ? product : { ...product, status: newStatus }
+							)
+					  }
 			)
 		)
 	}

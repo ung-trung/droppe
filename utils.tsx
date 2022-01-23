@@ -21,6 +21,11 @@ export const transformDiscountCart = (carts: IPopulatedCart[]): IPopulatedCart[]
 		...cart,
 		products: cart.products.map(cartProduct => {
 			const productFrequency = hashmap[cartProduct.productId]
+			const price = cartProduct?.product
+				? productFrequency > 1
+					? cartProduct?.product.price * (1 - productFrequency / 10)
+					: cartProduct?.product.price
+				: 0
 			return {
 				...cartProduct,
 				hasDiscount: productFrequency > 1,
@@ -28,10 +33,9 @@ export const transformDiscountCart = (carts: IPopulatedCart[]): IPopulatedCart[]
 				product: cartProduct?.product
 					? {
 							...cartProduct?.product,
-							price:
-								productFrequency > 1
-									? cartProduct?.product.price * (1 - productFrequency / 10)
-									: cartProduct?.product.price
+							initialPrice: cartProduct?.product.price,
+							price,
+							totalPrice: price * cartProduct.quantity
 					  }
 					: cartProduct?.product
 			}

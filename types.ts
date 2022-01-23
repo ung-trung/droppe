@@ -36,6 +36,8 @@ export interface Product {
 export interface IProductResponse {
 	id: number
 	title: string
+	initialPrice?: number
+	totalPrice?: number
 	price: number
 	description: string
 	category: Category

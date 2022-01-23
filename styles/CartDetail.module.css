@@ -1,0 +1,38 @@
+.cartTitle {
+	text-transform: capitalize;
+	text-align: center;
+	margin-top: 0;
+	font-size: 2rem;
+}
+
+.cartSubtitle {
+	margin-top: 0;
+	font-size: 1.5rem;
+}
+
+.gridItem {
+	border: 1px solid;
+	border-color: var(--base-content);
+	border-radius: var(--border-radius);
+	padding: 2rem 1.4rem;
+	position: relative;
+}
+
+.notifierSuccess {
+	height: 1.4rem;
+	width: 1.4rem;
+	position: absolute;
+	top: -0.7rem;
+	right: -0.7rem;
+	border-radius: 50%;
+	background: var(--success);
+}
+.notifierPending {
+	height: 1.4rem;
+	width: 1.4rem;
+	position: absolute;
+	top: -0.7rem;
+	right: -0.7rem;
+	border-radius: 50%;
+	background: var(--warning);
+}
