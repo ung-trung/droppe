@@ -1,7 +1,7 @@
 export interface IPopulatedCart {
 	id: number
 	userId: number
-    user?: IUserResponse 
+	user?: IUserResponse
 	date: Date
 	products: IPopulatedCartProduct[]
 	__v: number
@@ -9,12 +9,14 @@ export interface IPopulatedCart {
 
 export interface IPopulatedCartProduct extends Product {
 	status: ProductStatus
+	hasDiscount?: Boolean
+	discountPercentage?: Number
 	product?: IProductResponse
 }
 
 export enum ProductStatus {
 	Pending = 'pending',
-	Confirmed = 'confirmed',
+	Approved = 'approved',
 	Rejected = 'rejected'
 }
 
@@ -42,32 +44,32 @@ export interface IProductResponse {
 }
 
 export interface IUserResponse {
-    address:  Address;
-    id:       number;
-    email:    string;
-    username: string;
-    password: string;
-    name:     Name;
-    phone:    string;
-    __v:      number;
+	address: Address
+	id: number
+	email: string
+	username: string
+	password: string
+	name: Name
+	phone: string
+	__v: number
 }
 
 export interface Address {
-    geolocation: Geolocation;
-    city:        string;
-    street:      string;
-    number:      number;
-    zipcode:     string;
+	geolocation: Geolocation
+	city: string
+	street: string
+	number: number
+	zipcode: string
 }
 
 export interface Geolocation {
-    lat:  string;
-    long: string;
+	lat: string
+	long: string
 }
 
 export interface Name {
-    firstname: string;
-    lastname:  string;
+	firstname: string
+	lastname: string
 }
 
 export enum Category {
@@ -83,5 +85,5 @@ export interface Rating {
 }
 
 export interface ErrorResponse {
-    error: string
+	error: string
 }
