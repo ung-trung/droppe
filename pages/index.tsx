@@ -49,7 +49,7 @@ const Home: NextPage = ({ initialCarts }: InferGetServerSidePropsType<typeof get
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const { data } = await axios.get('http://localhost:3000/api/carts')
+	const { data } = await axios.get('https://youthful-einstein-c3a68f.netlify.app/api/carts')
 	return {
 		props: { initialCarts: data }
 	}
