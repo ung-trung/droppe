@@ -1,0 +1,16 @@
+.container {
+}
+
+.title {
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 0;
+	width: 100%;
+	line-height: 1.15;
+	font-size: 3rem;
+}
+
+.ctaContainer {
+	margin-top: 4rem;
+	text-align: right;
+}

@@ -73,3 +73,43 @@ p {
 	border-color: var(--base-content);
 	color: var(--primary-content);
 }
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -38%);
+	border: 1px solid;
+	border-color: var(--base-content);
+	background: var(--base-1);
+	border-radius: var(--border-radius);
+	max-height: 80%;
+	overflow: auto;
+	width: 100%;
+	padding: 2rem;
+}
+
+@media (min-width: 600px) {
+	.modal {
+		max-width: 85%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@media (min-width: 1080px) {
+	.modal {
+		max-width: 900px;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: #11112266;
+}

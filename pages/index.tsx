@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import Modal from 'react-modal'
 import CardList from '../components/CardList'
-import ConfirmModal from '../components/ConfirmModal'
+import ConfirmModal from '../components/ConfirmModalContent'
 import AppProvider from '../context/appContext'
 import styles from '../styles/Home.module.css'
 Modal.setAppElement('#__next')
@@ -34,8 +34,13 @@ const Home: NextPage = ({ initialCarts }: InferGetServerSidePropsType<typeof get
 							Save
 						</button>
 					</div>
-					<Modal isOpen={open} onRequestClose={() => setOpen(false)}>
-						<ConfirmModal />
+					<Modal
+						isOpen={open}
+						className="modal"
+						overlayClassName="modal-overlay"
+						onRequestClose={() => setOpen(false)}
+					>
+						<ConfirmModal closeModel={() => setOpen(false)} />
 					</Modal>
 				</div>
 			</div>

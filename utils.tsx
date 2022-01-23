@@ -1,7 +1,26 @@
-import { IPopulatedCart, IPopulatedCartProduct } from './types'
+import { IPopulatedCart, IPopulatedCartProduct, IProductResponse, ProductStatus } from './types'
 
 interface IHash {
-	[details: string]: number
+	[id: string]: number
+}
+
+enum ChangeType {
+	Quantity = 'quantity',
+	Status = 'status'
+}
+
+interface Change {
+	productId: number
+	title?: string
+	type: ChangeType
+	initialValue?: number | ProductStatus
+	nextValue: number | ProductStatus
+}
+
+interface compareCartsResult {
+	id: number
+	fullName?: string
+	changes: Change[]
 }
 
 export const transformDiscountCart = (carts: IPopulatedCart[]): IPopulatedCart[] => {
@@ -41,4 +60,46 @@ export const transformDiscountCart = (carts: IPopulatedCart[]): IPopulatedCart[]
 			}
 		})
 	}))
+}
+
+const findProductsChange = (
+	initialProducts: IPopulatedCartProduct[],
+	products: IPopulatedCartProduct[]
+): Change[] | [] => {
+	let result = []
+	for (const product of products) {
+		const initialProduct = initialProducts.find(iProduct => iProduct.productId === product.productId)
+		if (initialProduct?.quantity !== product.quantity) {
+			result.push({
+				productId: product.productId,
+				title: product.product?.title,
+				type: ChangeType.Quantity,
+				initialValue: initialProduct?.quantity,
+				nextValue: product.quantity
+			})
+		}
+		if (initialProduct?.status !== product.status) {
+			result.push({
+				productId: product.productId,
+				title: product.product?.title,
+				type: ChangeType.Status,
+				initialValue: initialProduct?.status,
+				nextValue: product.status
+			})
+		}
+	}
+	return result
+}
+
+export const compareCarts = (initialCarts: IPopulatedCart[], carts: IPopulatedCart[]): compareCartsResult[] => {
+	return carts
+		.map(cart => {
+			const initialCart = initialCarts.find(({ id }) => id === cart.id)
+			return {
+				id: cart.id,
+				fullName: `${cart.user?.name.firstname} ${cart.user?.name.lastname}`,
+				changes: findProductsChange(initialCart?.products as IPopulatedCartProduct[], cart.products)
+			}
+		})
+		.filter(({ changes }) => changes.length > 0)
 }
