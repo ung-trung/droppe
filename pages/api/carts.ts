@@ -20,7 +20,7 @@ const getRandomStatus = () => {
 	return allStatuses[getRandomIntInclusive(0, 2)]
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<IPopulatedCart[] | ErrorResponse>) => {
+const carts = async (req: NextApiRequest, res: NextApiResponse<IPopulatedCart[] | ErrorResponse>) => {
 	try {
 		const get5Carts = droppeApi.get('/carts?limit=5')
 		const getAllProducts = droppeApi.get('/products')
@@ -52,3 +52,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<IPopulatedCart[]
 		res.status(500).json({ error: 'failed to load data' })
 	}
 }
+
+export default carts

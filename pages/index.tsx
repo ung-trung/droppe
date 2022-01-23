@@ -22,7 +22,7 @@ const Home: NextPage = ({ initialCarts }: InferGetServerSidePropsType<typeof get
 				</Head>
 				<div className="container">
 					<h1 className={styles.title}>Droppe Xmas</h1>
-					<h2 className={styles.subtitle}>This page helps you manage your family's wishlists</h2>
+					<h2 className={styles.subtitle}>This page helps you manage your family wishlists</h2>
 					<CardList></CardList>
 					<div className={styles.ctaContainer}>
 						<button

@@ -63,7 +63,7 @@ const ProductDetail: FC<{ cartId: number; product: IPopulatedCartProduct }> = ({
 								})
 							}}
 						>
-							<Image src={approveIcon}></Image>
+							<Image src={approveIcon} alt="approve icon"></Image>
 						</button>{' '}
 						<button
 							className={`btn-icon ${styles.cta}`}
@@ -75,7 +75,7 @@ const ProductDetail: FC<{ cartId: number; product: IPopulatedCartProduct }> = ({
 								})
 							}}
 						>
-							<Image src={deleteIcon}></Image>
+							<Image src={deleteIcon} alt="delete icon"></Image>
 						</button>
 					</>
 				) : (
@@ -89,7 +89,7 @@ const ProductDetail: FC<{ cartId: number; product: IPopulatedCartProduct }> = ({
 							})
 						}}
 					>
-						<Image src={returnIcon}></Image>
+						<Image src={returnIcon} alt="back icon"></Image>
 					</button>
 				)}
 			</div>
