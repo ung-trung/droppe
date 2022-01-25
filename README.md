@@ -16,7 +16,6 @@
 - React NextJS -> I can implement the populate version of Fakestoreapi cart/fetch api (*) and utilize the SSR to prerender the carts.
 - React Context API -> Avoid Props Drilling
 - CSS variables -> Enable consistent global styling
-- 
 
 # Thoughts
 
@@ -25,7 +24,7 @@
 - Given the time frame, I choose to prioritize the code best practices and the functionality of the web page. It took me a toal of more than 9 hours to complete the assignement.
 
 # Limitations
-- Lack of styling, hover effect of element, shawdow
+- Lack of styling, hover effect of element, shadow
 
 # How to use
 - Clone project to a locale folder.
